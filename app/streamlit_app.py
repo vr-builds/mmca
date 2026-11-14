@@ -117,8 +117,9 @@ meas_col = st.sidebar.selectbox(
 
 st.sidebar.markdown("**3 · Specification limits**")
 c1, c2 = st.sidebar.columns(2)
-lsl = c1.number_input("LSL", value=None, format="%.6g", placeholder="lower")
-usl = c2.number_input("USL", value=None, format="%.6g", placeholder="upper")
+# step= makes these float inputs (with value=None Streamlit can otherwise infer int)
+lsl = c1.number_input("LSL", value=None, step=0.001, format="%.6g", placeholder="lower")
+usl = c2.number_input("USL", value=None, step=0.001, format="%.6g", placeholder="upper")
 
 with st.sidebar.expander("Advanced"):
     alpha = st.number_input("Significance level (α)", 0.001, 0.2, 0.05, 0.01, format="%.3f")
