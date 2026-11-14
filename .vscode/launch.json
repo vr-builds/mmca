@@ -1,0 +1,37 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "MMCA: Web app (Streamlit)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "streamlit",
+      "args": ["run", "app/streamlit_app.py", "--server.runOnSave=true"],
+      "cwd": "${workspaceFolder}",
+      "justMyCode": true
+    },
+    {
+      "name": "MMCA: CLI on sample data",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "mmca",
+      "args": [
+        "sample_data/sample_crimp.xlsx",
+        "--cavity", "Cavity",
+        "--measurement", "Crimp Height (mm)",
+        "--lsl", "1.15", "--usl", "1.25",
+        "--plots"
+      ],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "MMCA: Desktop launcher (pre-build check)",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "desktop/launcher.py",
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    }
+  ]
+}

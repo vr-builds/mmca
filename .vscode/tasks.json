@@ -1,0 +1,35 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "MMCA: Set up environment",
+      "type": "shell",
+      "command": "python3 -m venv .venv && .venv/bin/pip install -r requirements-dev.txt",
+      "windows": {
+        "command": "py -3 -m venv .venv; .venv\\Scripts\\pip install -r requirements-dev.txt"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "MMCA: Run tests",
+      "type": "shell",
+      "command": "${command:python.interpreterPath} -m pytest -q",
+      "group": { "kind": "test", "isDefault": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "MMCA: Run web app",
+      "type": "shell",
+      "command": "${command:python.interpreterPath} -m streamlit run app/streamlit_app.py",
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "MMCA: Build desktop app (this OS)",
+      "type": "shell",
+      "command": "${command:python.interpreterPath} -m PyInstaller desktop/mmca.spec --noconfirm --clean",
+      "group": "build",
+      "problemMatcher": []
+    }
+  ]
+}

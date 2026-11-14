@@ -1,0 +1,10 @@
+.venv
+.git
+.github
+.vscode
+build
+dist
+tests
+legacy
+Results
+**/__pycache__
